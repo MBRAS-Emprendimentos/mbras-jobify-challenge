@@ -25,9 +25,9 @@ export default function Home() {
   const [jobs, setJobs] = useState<any[]>([])
   const [loading, setLoading] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
+  const [selectedCategory, setSelectedCategory] = useState('')
   
 
-  // Função para buscar vagas com base no search
   const fetchJobsBySearch = async (search: string) => {
     setLoading(true)
     const url = `https://remotive.com/api/remote-jobs?search=${search}&limit=${limit}`
@@ -37,7 +37,6 @@ export default function Home() {
     setLoading(false)
   }
 
-  // Função para buscar vagas com base na categoria
   const fetchJobsByCategory = async (category: string) => {
     setLoading(true)
     const url = `https://remotive.com/api/remote-jobs?category=${category}&limit=${limit}`
@@ -48,18 +47,19 @@ export default function Home() {
   }
 
   useEffect(() => {
-    if (searchQuery) {
-      fetchJobsBySearch(searchQuery);  // Buscar por search
-    } else if (category) {
-      fetchJobsByCategory(category);  // Buscar por categoria
-    } else {
-      // Se não houver pesquisa ou categoria, busque pelo menos 32 jobs
-      setJobs([]);  // Limpar os resultados antes de fazer a busca
-      fetchJobsByCategory('');  // Buscando todos os jobs, sem categoria
-    }
-  }, [searchQuery, category, limit]);
+    const search = searchParams.get('search') || ''
+    setSearchQuery(search)
   
-
+    if (search) {
+      fetchJobsBySearch(search)
+    } else if (category) {
+      fetchJobsByCategory(category)
+    } else {
+      setJobs([])
+      fetchJobsByCategory('')
+    }
+  }, [searchParams, category, limit])
+  
   const handleLoadMore = () => {
     const newLimit = limit + 16
     const query = new URLSearchParams(searchParams.toString())
@@ -73,7 +73,6 @@ export default function Home() {
         <h1 className="text-4xl">Jobify</h1>
         <span className="text-2xl">Bem-vindo à Jobify! A vaga ideal para você está aqui.</span>
         <div className="flex gap-2 mt-4">
-          {/* Campo de pesquisa */}
           <Input
             className="h-12 w-[600px] placeholder:opacity-80 placeholder:text-white"
             placeholder="Pesquise por título ou tecnologia..."
@@ -81,36 +80,60 @@ export default function Home() {
             onChange={(e) => setSearchQuery(e.target.value)} // Atualiza o searchQuery
             onKeyDown={(e) => {
               if (e.key === 'Enter') {
-                const inputValue = (e.target as HTMLInputElement).value
-                setSearchQuery(inputValue) // Atualiza searchQuery para disparar o efeito
+                const query = new URLSearchParams(searchParams.toString())
+                query.set('search', searchQuery)
+                query.delete('category')
+                query.set('limit', '16')
+                router.push(`/?${query.toString()}`)
               }
             }}
           />
-          {/* ComboBox de categoria */}
-          <ComboBox 
-            minSearchLength={0} 
-            apiUrl="https://remotive.com/api/remote-jobs/categories" 
-            apiQuery="category" 
+          <ComboBox
+            minSearchLength={0}
+            apiUrl="https://remotive.com/api/remote-jobs/categories"
+            apiQuery="category"
             apiSearchQuery="search"
+            value={selectedCategory}
             onCategoryChange={(selectedCategory) => {
+              setSelectedCategory(selectedCategory)
+              setSearchQuery('')
               const query = new URLSearchParams(searchParams.toString())
               query.set('category', selectedCategory)
+              query.delete('search')
               query.set('limit', '16')
               router.push(`/?${query.toString()}`, { scroll: false })
             }}
           />
-          <Button
+
+         <Button
             className="bg-emerald-700 h-12 font-bold cursor-pointer"
             onClick={() => {
-              const input = document.querySelector<HTMLInputElement>('input')!
               const query = new URLSearchParams(searchParams.toString())
-              query.set('category', input.value)
+              query.set('search', searchQuery) // setar o search
+              query.delete('category') // opcional: limpa category se quiser focar apenas no search
               query.set('limit', '16')
               router.push(`/?${query.toString()}`)
             }}
           >
             Pesquisar
           </Button>
+          <Button
+            variant="outline"
+            className="h-12 font-bold cursor-pointer"
+            onClick={() => {
+              // Zera os valores visuais
+              setSearchQuery('')
+              setSelectedCategory('')
+
+              // Zera os parâmetros da URL
+              const query = new URLSearchParams()
+              query.set('limit', '16')
+              router.push(`/?${query.toString()}`)
+            }}
+          >
+            Limpar Filtros
+          </Button>
+
         </div>
         <span className="text-2xl mt-8">Exibindo {jobs.length} Vagas...</span>
       </header>
@@ -133,7 +156,13 @@ export default function Home() {
               <Badge variant="outline">{item.category}</Badge>
               <Badge variant="outline">{item.job_type}</Badge>
             </div>
-            <Button className="bg-emerald-700 font-bold mt-4 h-12 cursor-pointer hover:bg-emerald-800">
+            <Button
+              className="bg-emerald-700 font-bold mt-4 h-12 cursor-pointer hover:bg-emerald-800"
+              onClick={() => {
+                localStorage.setItem('selectedJob', JSON.stringify(item))
+                router.push(`/job/${item.id}`)
+              }}
+            >
               Saiba Mais
             </Button>
           </Card>
@@ -142,7 +171,7 @@ export default function Home() {
 
       {!loading && (
         <div className="flex justify-center mt-8">
-          <Button onClick={handleLoadMore} className="bg-emerald-700 font-bold h-12 px-6 hover:bg-emerald-800">
+          <Button onClick={handleLoadMore} className="bg-emerald-700 font-bold h-12 px-6 cursor-pointer hover:bg-emerald-800">
             Visualizar mais vagas
           </Button>
         </div>

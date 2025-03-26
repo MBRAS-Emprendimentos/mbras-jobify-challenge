@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 interface ComboBoxProps {
   minSearchLength: number
+  value: string
   apiUrl: string
   apiQuery: string
   apiSearchQuery: string
@@ -10,6 +11,7 @@ interface ComboBoxProps {
 
 const ComboBox: React.FC<ComboBoxProps> = ({ 
   minSearchLength, 
+  value,
   apiUrl, 
   apiQuery, 
   apiSearchQuery,
@@ -36,7 +38,7 @@ const ComboBox: React.FC<ComboBoxProps> = ({
     try {
       const response = await fetch(url)
       const data = await response.json()
-      setResults(data.jobs)  // Supondo que a resposta da API seja um array de objetos
+      setResults(data.jobs)
     } catch (error) {
       console.error('Error fetching data:', error)
     } finally {
@@ -46,12 +48,15 @@ const ComboBox: React.FC<ComboBoxProps> = ({
 
   useEffect(() => {
     if (query.length >= minSearchLength) {
-      // Verifique se é uma pesquisa por palavra-chave ou por categoria
       fetchResults(query, apiSearchQuery === 'search')
     } else {
-      setResults([]) // Limpa os resultados se a pesquisa não atingir o tamanho mínimo
+      setResults([])
     }
   }, [query])
+
+  useEffect(() => {
+    setQuery(value) 
+  }, [value])
 
   const handleToggle = () => {
     setIsOpen(prev => !prev)
