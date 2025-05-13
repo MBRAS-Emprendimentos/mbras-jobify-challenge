@@ -1,0 +1,37 @@
+.header {
+  background-color: #2563eb; /* bg-blue-600 */
+  color: white; /* text-white */
+  padding: 1rem 0; /* py-4 */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-md */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto; /* mx-auto */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem; /* px-4 */
+}
+
+.siteName {
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: bold;
+}
+
+.navList {
+  display: flex;
+  gap: 1rem; /* space-x-4 */
+}
+
+.navLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+.navLink:hover {
+  text-decoration: underline; /* hover:underline */
+}
+
+
+
