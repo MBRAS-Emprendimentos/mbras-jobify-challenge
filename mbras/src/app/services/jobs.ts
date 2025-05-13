@@ -2,24 +2,18 @@ import { Job } from "../types";
 const JOBS_API_URL = 'https://remotive.com/api/remote-jobs';
 
 
-// // export async function FilterByCat(category) {
-//     try{
-//         const urlEnd = `${JOBS_API_URL}?category=${category}`;
-//         const response = await fetch(urlEnd);
-//         const data = await response.json();
-        
-//         console.log(data);
-//         return data;
+export async function fetchCategories() {
+  const res = await fetch("https://remotive.com/api/remote-jobs/categories");
+  const data = await res.json();
 
-//     } catch (error) {
-//         console.error(error);
-//         return null;
-//     }
-// // }
+  return data.jobs.map((cat: { name: string; slug: string }) => ({
+    name: cat.name,
+    slug: cat.slug,
+  }));
+}
 
-// src/app/services/jobs.ts
 
-export async function fetchAllJobs(): Promise<Job[]> {
+export async function fetchAllJobs(category: string): Promise<Job[]> {
   try {
     const response = await fetch('https://remotive.com/api/remote-jobs', { cache: 'no-store' });
     const data = await response.json();

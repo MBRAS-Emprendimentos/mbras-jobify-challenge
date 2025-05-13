@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import styles from "./Header.module.css";
 
 export default function Header() {
   const [isLoading, setIsLoading] = useState(false);
@@ -12,37 +11,16 @@ export default function Header() {
   };
 
   return (
-    <header className={styles.header}>
-      <div className={styles.container}>
-        {/* Nome do site */}
-        <Link href="/" className={styles.siteName} onClick={handleNavigation}>
+    <header className="bg-gradient-to-b from-gray-800 to-black text-white py-4s shadow-lg">
+      <div className="max-w-7xl mx-auto px-4 py-5 flex items-center h-25">
+        <Link
+          href="/"
+          className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-gray-300 to-gray-500 hover:from-gray-500 hover:to-gray-700 transition-all duration-300 flex justify-center text-3xl sm:text-4xl p-4"
+          onClick={handleNavigation}
+        >
           Jobify
         </Link>
-
-        {/* Navegação */}
-        <nav>
-          <ul className={styles.navList}>
-            <li>
-              <Link href="/" className={styles.navLink} onClick={handleNavigation}>
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link href="/about" className={styles.navLink} onClick={handleNavigation}>
-                Sobre
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact" className={styles.navLink} onClick={handleNavigation}>
-                Contato
-              </Link>
-            </li>
-          </ul>
-        </nav>
       </div>
-
-      {/* Spinner de carregamento */}
-      {isLoading && <div className={styles.spinner}></div>}
     </header>
   );
 }

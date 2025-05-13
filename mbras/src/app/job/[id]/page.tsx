@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import styles from "./JobDetail.module.css";
 
 export default async function JobDetail({ params }: { params: { id: string } }) {
-  const jobs = await fetchAllJobs();
+  const jobs = await fetchAllJobs("all");
   const job = jobs.find((job) => job.id.toString() === params.id);
 
   if (!job) return notFound();
