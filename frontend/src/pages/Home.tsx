@@ -1,11 +1,18 @@
-import { useEffect, useState } from 'react';
-import { fetchJobs } from '../services/api';
-import type { Job } from '../types/Job';
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { fetchJobs } from "../services/api";
+import type { Job } from "../types/Job";
+import { Link } from "react-router-dom";
+
+interface Category {
+  slug: string;
+  name: string;
+}
 
 const Home = () => {
   const [jobs, setJobs] = useState<Job[]>([]);
-  const [category, setCategory] = useState<string>('');
+  const [category, setCategory] = useState<string>("");
+
+  const [categories, setCategories] = useState<Category[]>([]);
 
   useEffect(() => {
     const getJobs = async () => {
@@ -15,20 +22,40 @@ const Home = () => {
     getJobs();
   }, [category]);
 
+  useEffect(() => {
+  const fetchCategories = async () => {
+    try {
+      const response = await fetch("https://remotive.io/api/remote-jobs/categories");
+      const data = await response.json();
+      console.log("Categorias retornadas:", data); // veja no console a estrutura
+      setCategories(data.categories); // geralmente está dentro de data.categories
+    } catch (error) {
+      console.error("Erro ao buscar categorias:", error);
+    }
+  };
+
+  fetchCategories();
+}, []);
+
   return (
     <div className="p-4">
       <h1 className="text-2xl font-bold mb-4">Vagas de Emprego</h1>
+
       <select
         className="mb-4 p-2 border rounded"
         value={category}
         onChange={(e) => setCategory(e.target.value)}
       >
         <option value="">Todas as Categorias</option>
-        <option value="software-dev">Desenvolvimento de Software</option>
-        <option value="design">Design</option>
-        <option value="marketing">Marketing</option>
-        {/* Adicione mais categorias conforme necessário */}
+        {categories.map((cat) => (
+          <option key={cat.slug} value={cat.slug}>
+            {cat.name}
+          </option>
+        ))}
       </select>
+
+      <p>Quantidade de categorias: {categories.length}</p>
+
       <ul>
         {jobs.map((job) => (
           <li key={job.id} className="mb-2">
