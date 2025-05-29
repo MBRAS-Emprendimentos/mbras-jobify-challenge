@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(req:NextApiRequest, res:NextApiResponse) {
     const { search } = req.query;
-    const apiUrl = search ? `https://remotive.io/api/remote-jobs?search=${search}` : "https://remotive.io/api/remote-jobs";
+    const apiUrl = search ? `https://remotive.com/api/remote-jobs?search=${search}` : "https://remotive.com/api/remote-jobs";
 
     try{
         const response = await fetch(apiUrl);
