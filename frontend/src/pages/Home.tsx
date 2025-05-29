@@ -27,8 +27,8 @@ const Home = () => {
     try {
       const response = await fetch("https://remotive.io/api/remote-jobs/categories");
       const data = await response.json();
-      console.log("Categorias retornadas:", data); // veja no console a estrutura
-      setCategories(data.categories); // geralmente está dentro de data.categories
+      console.log("Categorias retornadas:", data); 
+      setCategories(data.categories); 
     } catch (error) {
       console.error("Erro ao buscar categorias:", error);
     }
