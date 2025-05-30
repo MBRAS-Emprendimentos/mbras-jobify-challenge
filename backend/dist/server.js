@@ -9,6 +9,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use('/favorites', favoriteRoutes);
+
 const start = async () => {
     try {
         await sequelize.authenticate();
