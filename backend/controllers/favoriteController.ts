@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { Favorite } from '../models/Favorite';
+import { Favorite } from '../models/Favorite.js';
 
 export const getFavorites = async (_: Request, res: Response) => {
   const favorites = await Favorite.findAll();

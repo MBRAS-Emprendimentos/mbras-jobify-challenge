@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-     "start": "ts-node server.ts"
+    "dev": "ts-node-esm index.ts",
+    "build": "tsc && tsc-alias",
+    "start": "node dist/index.js"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +26,7 @@
     "@types/node": "^22.15.26",
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
+    "tsc-alias": "^1.8.16",
     "typescript": "^5.8.3"
   }
 }

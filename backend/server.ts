@@ -1,9 +1,9 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import { sequelize } from './config/db';
-import favoriteRoutes from './routes/favorites';
-import './models/Favorite';
+import { sequelize } from './config/db.js';
+import favoriteRoutes from './routes/favorites.js';
+import './models/Favorite.js';
 
 dotenv.config();
 
