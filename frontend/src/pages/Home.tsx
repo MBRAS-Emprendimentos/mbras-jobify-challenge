@@ -1,18 +1,19 @@
 import { useEffect, useState } from "react";
 import { fetchJobs } from "../services/api";
 import type { Job } from "../types/Job";
+import {
+  addFavorite,
+  getFavorites,
+  removeFavorite,
+} from "../services/favorites";
 import { Link } from "react-router-dom";
-
-interface Category {
-  slug: string;
-  name: string;
-}
+import type { Favorite } from "../types/Favorite";
 
 const Home = () => {
   const [jobs, setJobs] = useState<Job[]>([]);
-  const [category, setCategory] = useState<string>("");
-
-  const [categories, setCategories] = useState<Category[]>([]);
+  const [category, setCategory] = useState("");
+  const [search, setSearch] = useState("");
+  const [favorites, setFavorites] = useState<number[]>([]);
 
   useEffect(() => {
     const getJobs = async () => {
@@ -23,45 +24,74 @@ const Home = () => {
   }, [category]);
 
   useEffect(() => {
-  const fetchCategories = async () => {
-    try {
-      const response = await fetch("https://remotive.io/api/remote-jobs/categories");
-      const data = await response.json();
-      console.log("Categorias retornadas:", data); 
-      setCategories(data.categories); 
-    } catch (error) {
-      console.error("Erro ao buscar categorias:", error);
+    getFavorites().then((data: Favorite[]) => {
+      setFavorites(data.map((f) => f.jobId));
+    });
+  }, []);
+
+  const toggleFavorite = async (job: Job) => {
+    if (favorites.includes(job.id)) {
+      await removeFavorite(job.id);
+    } else {
+      await addFavorite({
+        jobId: job.id,
+        title: job.title,
+        company: job.company_name,
+      });
     }
+    const data: Favorite[] = await getFavorites();
+    setFavorites(data.map((f) => f.jobId));
   };
 
-  fetchCategories();
-}, []);
+  const filteredJobs = jobs.filter(
+    (job) =>
+      job.title.toLowerCase().includes(search.toLowerCase()) ||
+      job.company_name.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
     <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Vagas de Emprego</h1>
-
+      <h1 className="text-2xl font-bold mb-4">Vagas Remotas</h1>
+      <input
+        className="mb-4 p-2 border rounded w-full"
+        placeholder="Buscar vaga ou empresa..."
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
       <select
         className="mb-4 p-2 border rounded"
         value={category}
         onChange={(e) => setCategory(e.target.value)}
       >
         <option value="">Todas as Categorias</option>
-        {categories.map((cat) => (
-          <option key={cat.slug} value={cat.slug}>
-            {cat.name}
-          </option>
-        ))}
+        <option value="software-dev">Desenvolvimento de Software</option>
+        <option value="design">Design</option>
+        <option value="marketing">Marketing</option>
       </select>
 
-      <p>Quantidade de categorias: {categories.length}</p>
-
       <ul>
-        {jobs.map((job) => (
-          <li key={job.id} className="mb-2">
-            <Link to={`/job/${job.id}`} className="text-blue-500 hover:underline">
-              {job.title} - {job.company_name}
-            </Link>
+        {filteredJobs.map((job) => (
+          <li
+            key={job.id}
+            className="mb-4 border-b pb-2 flex justify-between items-center"
+          >
+            <div>
+              <Link
+                to={`/job/${job.id}`}
+                className="text-blue-600 hover:underline"
+              >
+                {job.title}
+              </Link>
+              <div className="text-sm text-gray-500">{job.company_name}</div>
+            </div>
+            <button
+              className={`text-sm px-3 py-1 rounded ${
+                favorites.includes(job.id) ? "bg-red-200" : "bg-green-200"
+              }`}
+              onClick={() => toggleFavorite(job)}
+            >
+              {favorites.includes(job.id) ? "Remover" : "Favoritar"}
+            </button>
           </li>
         ))}
       </ul>
