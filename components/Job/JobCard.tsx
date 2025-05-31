@@ -24,14 +24,14 @@ function truncate(text: string, maxLength: number): string {
 }
 
 export default function JobCard({ job, onClick }: Props) {
-  const [maxSalaryLength, setMaxSalaryLength] = useState(30); // default para desktop
+  const [maxSalaryLength, setMaxSalaryLength] = useState(30);
 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 768) {
-        setMaxSalaryLength(15); // celular
+        setMaxSalaryLength(15); 
       } else {
-        setMaxSalaryLength(30); // desktop/tablet
+        setMaxSalaryLength(30); 
       }
     };
 
@@ -43,7 +43,7 @@ export default function JobCard({ job, onClick }: Props) {
   return (
     <div
       onClick={() => onClick(job)}
-      className="cursor-pointer flex flex-col gap-2 border-2 border-white rounded-md p-4 md:my-0 my-4 hover:bg-zinc-800"
+      className="cursor-pointer flex flex-col gap-2 border-2 border-white rounded-md p-4 md:my-0 my-4 hover:bg-[#03092862]"
     >
       <h2 className="text-xl font-semibold">{job.title}</h2>
       <p className="text-stone-200 flex gap-2 text-center">{job.company_name}</p>

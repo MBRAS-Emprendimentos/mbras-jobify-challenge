@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { format } from "date-fns"
+import { format, parseISO } from "date-fns"
 import { Calendar as CalendarIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
@@ -20,18 +20,17 @@ type Props = {
 
 export function DatePicker({ value, onChange }: Props) {
   const [date, setDate] = React.useState<Date | undefined>(
-    value ? new Date(value) : undefined
+    value ? parseISO(value) : undefined
   );
 
-  // 🔄 Sincroniza quando o value externo mudar
   React.useEffect(() => {
-    setDate(value ? new Date(value) : undefined);
+    setDate(value ? parseISO(value) : undefined);
   }, [value]);
 
   const handleSelect = (selected: Date | undefined) => {
     setDate(selected);
     if (selected) {
-      onChange(format(selected, "yyyy-MM-dd")); // formato ISO
+      onChange(format(selected, "yyyy-MM-dd"));
     } else {
       onChange("");
     }
