@@ -22,6 +22,8 @@ git clone https://github.com/FabioAsseiro/mbras-jobify-challenge.git
 
 cd mbras-jobify-challenge
 
+cd jobify
+
 npm install
 
 npm run dev
