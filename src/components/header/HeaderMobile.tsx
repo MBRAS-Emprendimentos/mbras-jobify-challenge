@@ -41,7 +41,7 @@ const SideBar: React.FC = () => {
               Início
             </Link>
             <Link
-              href="#"
+              href="/#vagas"
               className="block text-white text-lg px-8 py-3 hover:text-gray-300"
               onClick={closeNav}
             >
@@ -62,15 +62,15 @@ const SideBar: React.FC = () => {
               Para Empresas
             </Link>
           </div>
-          <a
-            href="#"
+          <Link
+            href="/"
             className="flex items-center gap-2 text-2xl font-semibold text-indigo-700"
           >
             <Briefcase size={28} /> Jobify
-          </a>
+          </Link>
           <div className="flex items-center gap-4">
             <button className="p-2 rounded-full hover:bg-slate-100"></button>
-            <button className="px-4 py-2 rounded-md bg-indigo-700 text-white text-sm font-medium shadow hover:bg-indigo-800">
+            <button className="cursor-pointer px-4 py-2 rounded-md bg-indigo-700 text-white text-sm font-medium shadow hover:bg-indigo-800">
               Entrar
             </button>
           </div>
