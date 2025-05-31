@@ -153,7 +153,7 @@ export default function Home() {
             setSearchTitle("");
             setSearchCategory("");
             setSearchDate("");
-          }} className="bg-blue-light rounded-md text-white p-1 w-43 md:w-64">Reset filter</button>
+          }} className="bg-blue-light hover:bg-blue-700 rounded-md text-white p-1 w-43 md:w-64">Reset filter</button>
         </div>
 
         <p className="text-sm sm:text-base pt-5 md:pt-0">{filteredJobs.length} <span className="text-blue-light italic">Jobs</span> found</p>
