@@ -19,11 +19,14 @@ Este projeto é uma aplicação web para listagem e visualização de vagas de e
 
 ```bash
 git clone https://github.com/FabioAsseiro/mbras-jobify-challenge.git 
+```
 
+```bash
 cd mbras-jobify-challenge
-
-cd jobify
-
+```
+```bash
 npm install
-
+```
+```bash
 npm run dev
+```
