@@ -73,9 +73,9 @@ npm run dev
 -  **Primeiro contato com TypeScript**, estudado com curso da Alura e documentação.
 -  **TailwindCSS e ShadCN**: aprendidos via documentação oficial.
 -  **Produção completa em 3 dias**:
-  - **Dia 1**: Aprendizado de TypeScript, Tailwind e ShadCN + integração com Remotive + API de favoritos com persistência em banco.
-  - **Dia 2**: Criação da página de favoritos + implementação de Frame Motion.
-  - **Dia 3**: Finalização do design, ajustes visuais e responsividade.
+   - **Dia 1**: Aprendizado de TypeScript, Tailwind e ShadCN + integração com Remotive + API de favoritos com persistência em banco.
+   - **Dia 2**: Criação da página de favoritos + implementação de Frame Motion.
+   - **Dia 3**: Finalização do design, ajustes visuais e responsividade.
 -  Integração completa de Frontend com Backend usando  **TypeScript** -> **Node** + **Express**, **Axios**, **Sequelize** e **MySQL**.
 
 ---
