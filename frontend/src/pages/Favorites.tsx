@@ -46,7 +46,7 @@ const Favorites = () => {
       <div className="flex items-center justify-between px-[2vw] mb-[14vh] mt-[4vh]">
         <SplitText
           text="Vagas favoritadas"
-          className="text-[clamp(4rem,8vw,7rem)] font-[var(--font-calsans)] inline-block leading-[1.2] overflow-visible align-baseline"
+          className="text-[clamp(1rem,8vw,3.5rem)] font-[var(--font-calsans)] inline-block leading-[1.2] overflow-visible align-baseline"
           delay={100}
           duration={0.9}
           ease="power3.out"
@@ -82,17 +82,17 @@ const Favorites = () => {
             >
               <div>
                 <Link to={`/job/${fav.jobId}`}>
-                  <span className="w-[50vw] text-[clamp(1rem,6vw,2.6rem)] font-[var(--font-dmsans)] overflow-visible my-[2vh] mx-[1.5vw]">
+                  <span className="w-[50vw] text-[clamp(1rem,6vw,1.8rem)] font-[var(--font-dmsans)] overflow-visible my-[2vh] mx-[1.5vw]">
                     {fav.title}
                   </span>
                 </Link>
-                <div className="text-[clamp(0.5rem,4vw,2.2rem)] font-[var(--font-dmsans)] overflow-visible mb-[2vh] mx-[1vw] text-gray-500">
+                <div className="text-[clamp(0.5rem,4vw,1.2rem)] font-[var(--font-dmsans)] overflow-visible mb-[2vh] mx-[1vw] text-gray-500">
                   {fav.company}
                 </div>
               </div>
               <Magnet padding={70} disabled={false} magnetStrength={5}>
                 <button
-                  className="text-sm mr-[1.5vw] px-[4vw] py-[3vh] rounded-full cursor-pointer font-[var(--font-dmsans)] text-[clamp(1rem,4vw,1.5rem)] bg-red-200"
+                  className="text-sm mr-[1.5vw] px-[3vw] py-[2vh] rounded-full cursor-pointer font-[var(--font-dmsans)] text-[clamp(0.1rem,4vw,0.9rem)] bg-red-200 text-red-900"
                   onClick={() => handleRemove(fav.jobId)}
                 >
                   Remover
