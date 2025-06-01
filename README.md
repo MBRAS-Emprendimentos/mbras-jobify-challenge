@@ -18,7 +18,7 @@
 ## **Como Rodar o Projeto Localmente** 
 
 - **MySQL** (recomenda-se o uso do MySQL Workbench) instalado
-- Abra seu MySQL Workbench e execute:
+- Abra seu MySQL Workbench e execute (recomendo o vídeo do CFB cursos para aprender a fazer a instalação):
 
 ```sql
 CREATE DATABASE jobify;
