@@ -51,34 +51,34 @@ npm run dev
 
 ## **Funcionalidades da Plataforma** 
 
-- 🔍 **Exibição de vagas** via API do Remotive.
-- 📂 **Filtragem por categoria** de vagas.
-- 🔎 Campo de **busca** para encontrar vagas por palavras-chave.
-- ❤️ **Contador de vagas favoritadas** visível na interface.
-- ➕ Botão **"Ver mais vagas"**: carrega +18 vagas por clique para evitar sobrecarga.
-- ⭐ **API de favoritos**: salva as vagas favoritas no banco de dados.
-- 💾 **Persistência de favoritos** na página "Favorite", mesmo após atualizar.
-- 🧾 **Modal de detalhes da vaga** com botão para se candidatar.
-- 🧱 Arquitetura **MVC** organizada e modular.
-- 📱 **Responsividade** para todos os dispositivos.
-- ✨ **Animações** com Frame Motion e componentes animados com React Bits.
-- ♿ **Acessibilidade** com `alt`, `aria-label` e `onekeys` para navegação assistiva.
+-  **Exibição de vagas** via API do Remotive.
+-  **Filtragem por categoria** de vagas.
+-  Campo de **busca** para encontrar vagas por palavras-chave.
+-  **Contador de vagas favoritadas** visível na interface.
+-  Botão **"Ver mais vagas"**: carrega +18 vagas por clique para evitar sobrecarga.
+-  **API de favoritos**: salva as vagas favoritas no banco de dados.
+-  **Persistência de favoritos** na página "Favorite", mesmo após atualizar.
+-  **Modal de detalhes da vaga** com botão para se candidatar.
+-  Arquitetura **MVC** organizada e modular.
+-  **Responsividade** para todos os dispositivos.
+-  **Animações** com Frame Motion e componentes animados com React Bits.
+-  **Acessibilidade** com `alt`, `aria-label` e `onekeys` para navegação assistiva.
 
 ---
 
 ## **Desafios Técnicos Superados** 
 
-- 📘 **Primeiro contato com TypeScript**, estudado com curso da Alura e documentação.
-- 🎨 **TailwindCSS e ShadCN**: aprendidos via documentação oficial.
-- ⏱️ **Produção completa em 3 dias**:
+-  **Primeiro contato com TypeScript**, estudado com curso da Alura e documentação.
+-  **TailwindCSS e ShadCN**: aprendidos via documentação oficial.
+-  **Produção completa em 3 dias**:
   - **Dia 1**: Aprendizado de TypeScript, Tailwind e ShadCN + integração com Remotive + API de favoritos com persistência em banco.
   - **Dia 2**: Criação da página de favoritos + implementação de Frame Motion.
   - **Dia 3**: Finalização do design, ajustes visuais e responsividade.
-- 🔁 Integração completa de Frontend com Backend usando  **TypeScript** -> **Node** + **Express**, **Axios**, **Sequelize** e **MySQL**.
+-  Integração completa de Frontend com Backend usando  **TypeScript** -> **Node** + **Express**, **Axios**, **Sequelize** e **MySQL**.
 
 ---
 
-## **Tecnologias e Metodologias Utilizadas** 🛠️
+## **Tecnologias e Metodologias Utilizadas** 
 
 | **Tecnologia/Metodologia** | **Descrição** | **Badge** |
 |----------------------------|-----------------------------|----------------|
@@ -87,14 +87,14 @@ npm run dev
 | **TailwindCSS**            | Estilização rápida e utilitária | ![Tailwind](https://img.shields.io/badge/TailwindCSS-0A66C2?style=for-the-badge&logo=tailwindcss&logoColor=white) |
 | **ShadCN**                 | Componentes acessíveis e modernos | ![ShadCN](https://img.shields.io/badge/ShadCN-0A66C2?style=for-the-badge&logo=vercel&logoColor=white) |
 | **Frame Motion**           | Animações visuais suaves | ![Framer Motion](https://img.shields.io/badge/Framer--Motion-0A66C2?style=for-the-badge&logo=framermotion&logoColor=white) |
-| **React Bits**             | Componentes animados reutilizáveis | 🧩 |
+| **React Bits**             | Componentes animados reutilizáveis |
 | **Vite**                   | Ferramenta de build ultra-rápida | ![Vite](https://img.shields.io/badge/Vite-0A66C2?style=for-the-badge&logo=vite&logoColor=white) |
 | **Node.js**                | Backend para manipulação de dados | ![Node](https://img.shields.io/badge/Node.js-0A66C2?style=for-the-badge&logo=node.js&logoColor=white) |
 | **Express.js**             | Framework leve para APIs REST | ![Express](https://img.shields.io/badge/Express-0A66C2?style=for-the-badge&logo=express&logoColor=white) |
 | **Sequelize**              | ORM para integração com SQL | ![Sequelize](https://img.shields.io/badge/Sequelize-0A66C2?style=for-the-badge&logo=sequelize&logoColor=white) |
 | **MySQL**                  | Banco de dados relacional | ![MySQL](https://img.shields.io/badge/MySQL-0A66C2?style=for-the-badge&logo=mysql&logoColor=white) |
-| **Axios**                  | Comunicação com APIs | 🛰️ |
-| **Arquitetura MVC**        | Organização modular de código | 🧱 |
-| **Acessibilidade**         | Interface inclusiva e navegação por teclado | ♿ |
+| **Axios**                  | Comunicação com APIs |
+| **Arquitetura MVC**        | Organização modular de código |
+| **Acessibilidade**         | Interface inclusiva e navegação por teclado |
 
 ---
