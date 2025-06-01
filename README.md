@@ -26,7 +26,7 @@ CREATE DATABASE jobify;
 
 - Clone o repositório:
 ```bash
-git clone https://github.com/seu-usuario/jobify.git
+git clone https://github.com/seu-usuario/mbras-jobify-challenge.git
 ```
 
 - Configure as variáveis de ambiente:
@@ -46,6 +46,8 @@ cd frontend
 npm i
 npm run dev
 ```
+
+- A resposta da API pode apresentar latência em máquinas com menor desempenho. Caso a listagem de vagas demore a ser exibida, recomenda-se recarregar a página para forçar uma nova requisição.
 
 ---
 
