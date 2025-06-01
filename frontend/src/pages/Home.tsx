@@ -172,7 +172,7 @@ const Home = () => {
   ].map(({ value, label }) => (
     <button
       key={value}
-      className={`px-[2vw] py-[2vh] rounded-full border transition ${
+      className={`px-[2vw] py-[2vh] rounded-full border transition cursor-pointer ${
         category === value
           ? "bg-blue-500 text-white text-[clamp(1rem,4vw,1.2rem)]"
           : "bg-white text-gray-700 hover:bg-blue-100 text-[clamp(1rem,4vw,1.5rem)]"
