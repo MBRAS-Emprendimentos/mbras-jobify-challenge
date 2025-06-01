@@ -26,7 +26,7 @@ CREATE DATABASE jobify;
 
 - Clone o repositório:
 ```bash
-git clone https://github.com/seu-usuario/mbras-jobify-challenge.git
+git clone https://github.com/sophi-hub/mbras-jobify-challenge.git
 ```
 
 - Configure as variáveis de ambiente:
