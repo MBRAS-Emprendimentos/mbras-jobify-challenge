@@ -87,7 +87,7 @@ const Favorites = () => {
 
       <section aria-live="polite">
         {favorites.length === 0 ? (
-          <p>Você ainda não favoritou nenhuma vaga.</p>
+          <p className="text-[clamp(1rem,6vw,1.8rem)] font-[var(--font-dmsans)] overflow-visible my-[2vh] mx-[1.5vw]">Você ainda não favoritou nenhuma vaga.</p>
         ) : (
           <ul className="px-[1vw]">
             {favorites.map((fav, i) => (
