@@ -36,7 +36,7 @@ npm install
 
 3. Crie as tabela no supabase:
 
-<pre lang="markdown"> ```sql CREATE TABLE favorites (
+<pre lang="markdown"> sql CREATE TABLE favorites (
   id SERIAL PRIMARY KEY,
   user_id uuid REFERENCES users(id) ON DELETE CASCADE,
   job_id INTEGER NOT NULL,
@@ -52,12 +52,12 @@ CREATE TABLE users (
   email TEXT UNIQUE NOT NULL,
   password TEXT NOT NULL,
   created_at TIMESTAMP DEFAULT NOW()
-); ``` </pre>
+);  </pre>
 
 4. Crie um arquivo .env dentro da pasta backend com as credenciais do Supabase:
 
-<pre> ```ini ` SUPABASE_URL=https://kxvrqazhseahahuvpmhr.supabase.co
-SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.........(chave private)  ``` </pre>
+<pre> SUPABASE_URL=https://kxvrqazhseahahuvpmhr.supabase.co
+SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.........(chave private)  </pre>
 
 5. Execute o backend:
 
