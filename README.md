@@ -1,93 +1,40 @@
-# Jobify: Desafio - Painel de Vagas de Emprego
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
 
-**Objetivo:** Construir um aplicativo de listagem de vagas onde os usuários possam navegar pelas oportunidades, filtrar por categoria e visualizar detalhes.
+## Getting Started
 
-## Requisitos:
+First, run the development server:
 
-1. **Stack:**
-
-   - Next.js (React, TypeScript)
-   - **ShadCN** e **TailwindCSS** (Recomendado para UI, pois são usados na empresa)
-
-2. **Funcionalidades:**
-
-   - **Página de Listagem de Vagas:** Buscar e exibir uma lista de vagas de emprego a partir de uma API.
-   - **Página de Detalhes da Vaga:** Ao clicar em uma vaga, o usuário deve ser redirecionado para uma página com mais informações.
-   - **Filtro por Categoria:** Permitir a filtragem de vagas por categoria (ex: Frontend, Backend, Full Stack).
-   - **Design Responsivo:** Deve funcionar bem tanto em dispositivos móveis quanto em desktops.
-
-3. **Integração com API:**
-   - Utilizar a **[API do Remotive](https://remotive.io/api-documentation)** (API pública de listagem de empregos).
-
-## Desafio Opcional com Banco de Dados (Desafio Bônus 🚀)
-
-**Atenção:** A opção de usar banco de dados é **um desafio opcional**. Se preferir, pode pular essa parte e seguir com a funcionalidade principal. Não se preocupe com a entrega completa. Nosso foco está nas habilidades que você usou para construir o que conseguiu realizar.
-
-- **Favoritos:** Permitir que os usuários possam "favoritar" vagas e armazená-las em um banco de dados.
-- **Opções de Backend:**
-  - **Banco Relacional Preferido:** **Supabase** (Banco PostgreSQL gratuito + autenticação)
-  - **Banco NoSQL (Alternativa):** **Firebase Firestore** (Banco NoSQL gratuito)
-- O usuário deve conseguir visualizar suas vagas salvas mesmo após atualizar a página.
-- **Preferência:** Embora ambos os bancos (relacional e NoSQL) sejam válidos, **bancos relacionais** são preferenciais para este desafio, pois se alinham mais com a estrutura que usamos na empresa.
-
-- **Desafio Adicional (Opcional):**
-
-  - **Criação da API de Likes:** Ao implementar a funcionalidade de favoritos, crie uma API para gerenciar os "likes" ou "favoritos" das vagas. A criação da API é implícita se você decidir fazer este desafio.
-
-  - **Desafio do Desafio (Docker):** O verdadeiro desafio aqui é **utilizar Docker** para subir **tudo junto**. Crie um **Docker Compose** para subir o site, a API e o banco de dados. Recomendamos uma estrutura de pastas como:
-
-```
-      .
-      ├── frontend
-      │   ├── public
-      ├── backend
-      │   ├── src
-      └── database
-         └── migrations
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-Você pode organizar da maneira que preferir, desde que mantenha tudo no mesmo repositório. Se decidir usar um banco local, o desafio será maior, pois você precisará configurar o banco de dados localmente dentro do Docker.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Fluxo de Fork e Pull Request (PR):
+You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-Para realizar este teste, o processo será feito diretamente em um repositório público no GitHub. O fluxo a ser seguido é o seguinte:
+[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-1. **Fork do Repositório:**
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
 
-   - Acesse o repositório público do teste (será fornecido o link).
-   - Faça um **fork** do repositório para sua conta do GitHub. Isso cria uma cópia do repositório em seu perfil, onde você poderá trabalhar nas modificações.
+This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-2. **Clone o Repositório para seu Ambiente Local:**
+## Learn More
 
-   - Após fazer o fork, **clone o repositório** para o seu ambiente de desenvolvimento local usando o comando:
-     ```bash
-     git clone https://github.com/seu-usuario/mbras-jobify-challenge.git
-     ```
+To learn more about Next.js, take a look at the following resources:
 
-3. **Desenvolvimento:**
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
 
-   - Siga as instruções do repositório (caso existam) ou desenvolva a solução conforme os requisitos descritos.
-   - Faça commits frequentes no seu repositório para garantir que o progresso está sendo salvo.
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-4. **Criação do Pull Request (PR):**
+## Deploy on Vercel
 
-   - Quando terminar o desenvolvimento, faça o push das alterações para o seu repositório remoto.
-   - Abra um **Pull Request (PR)** no repositório original. No PR, descreva as funcionalidades implementadas e qualquer detalhe relevante.
-   - Nosso time irá revisar o PR, focando nas soluções e habilidades que você utilizou para resolver os desafios.
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-5. **Feedback:**
-   - Após a análise, você receberá feedback sobre a entrega, baseado nas boas práticas e no uso das tecnologias recomendadas.
-
-## Importante:
-
-**Se você achar que não tem tempo suficiente, não se preocupe com os desafios opcionais.** Foque na entrega do que for mais importante, e não se importe se não conseguir implementar tudo. A avaliação será baseada **nas habilidades e soluções que você utilizou** para criar a funcionalidade que conseguiu implementar.
-
-## Critérios de Avaliação:
-
-✅ Estrutura e boas práticas de código  
-✅ Integração com API e manipulação de dados  
-✅ Conhecimento em Next.js & React (Rotas, Hooks, etc.)  
-✅ **Cuidado com o design e UI do aplicativo** (Uso adequado de ShadCN e Tailwind, layout organizado)  
-✅ Responsividade  
-✅ (Bônus) Integração com banco de dados e operações CRUD  
-✅ (Desafio Adicional) Uso de Docker Compose para criar e gerenciar o site, a API e o banco de dados local
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
