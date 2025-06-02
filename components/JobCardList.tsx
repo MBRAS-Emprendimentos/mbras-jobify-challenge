@@ -158,7 +158,7 @@ export default function JobCardList({ filters }: { filters: Filters }) {
             </button>
 
             <span className="text-zinc-500 dark:text-zinc-400">
-              Página {currentPage} de {totalPages}
+               {currentPage} de {totalPages}
             </span>
 
             <button

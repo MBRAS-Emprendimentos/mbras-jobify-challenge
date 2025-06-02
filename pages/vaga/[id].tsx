@@ -22,7 +22,7 @@ export default function VagaDetalhes() {
     setJob(found || null);
     setIsLoading(false);
 
-    // Volta ao topo ao abrir a vaga
+    // retorna ao topo ao abrir a vaga
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [id, router.isReady, jobs]);
 

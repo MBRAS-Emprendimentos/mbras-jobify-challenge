@@ -55,11 +55,11 @@ export default function JobFilters({ onFilterChange }: { onFilterChange: (filter
   return (
     <section className="w-full px-4 md:px-8 py-8 border-b border-zinc-200 dark:border-zinc-800">
       <div className="flex flex-col items-center gap-8 max-w-7xl mx-auto">
-        {/* barrra de busca */}
+        {/* barra de busca */}
           <div className="relative w-full max-w-2xl">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400 w-5 h-5" />
 
-            {/* Botão X para limpar busca */}
+            {/* limpar busca */}
             {titleSearch && (
               <button
                 onClick={() => setTitleSearch('')}

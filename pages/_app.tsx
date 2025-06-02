@@ -1,4 +1,3 @@
-// pages/_app.tsx
 import type { AppProps } from 'next/app';
 import { JobsProvider } from '@/context/JobsContext';
 import ThemeToggle from '@/components/ThemeToggle';
