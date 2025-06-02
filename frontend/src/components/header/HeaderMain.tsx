@@ -25,7 +25,7 @@ export function SideBar2() {
           <Briefcase size={28} /> Jobify
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-700">
+        <nav className="flex items-center gap-8 text-sm font-medium text-slate-700">
           <Link href="/" className="hover:text-indigo-700">
             Início
           </Link>

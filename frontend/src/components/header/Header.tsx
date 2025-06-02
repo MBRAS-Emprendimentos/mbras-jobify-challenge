@@ -10,7 +10,7 @@ export function Header() {
   useEffect(() => {
     if (typeof window !== "undefined") {
       const handleResize = () => {
-        setIsMobile(window.innerWidth < 768);
+        setIsMobile(window.innerWidth < 800);
       };
 
       handleResize();

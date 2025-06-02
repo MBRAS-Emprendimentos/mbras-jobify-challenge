@@ -77,6 +77,7 @@ const SideBar: React.FC = () => {
               <Link
                 href="/favorites"
                 className="block text-white text-lg px-8 py-3 hover:text-gray-300"
+                onClick={closeNav}
               >
                 Favoritos
               </Link>
