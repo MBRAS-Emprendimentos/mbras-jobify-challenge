@@ -36,7 +36,7 @@ npm install
 
 3. Crie as tabela no supabase:
 
-<pre lang="markdown"> sql CREATE TABLE favorites (
+<pre lang="markdown"> CREATE TABLE favorites (
   id SERIAL PRIMARY KEY,
   user_id uuid REFERENCES users(id) ON DELETE CASCADE,
   job_id INTEGER NOT NULL,
