@@ -3,6 +3,7 @@ import { fetchJobById } from "@/services/remotive";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { FavoriteButton } from "@/components/favorite/favoriteButton";
 
 interface Props {
   params: Promise<{ id: string }>;
@@ -34,7 +35,7 @@ export default async function JobDetail({ params }: Props) {
   if (!job) notFound();
 
   return (
-    <article className="mx-auto max-w-none lg:prose-lg px-4 py-8">
+    <article className="mx-auto max-w-none lg:prose-lg px-4 py-8 mt-16">
       <Link href="/" className="no-underline">
         ← Voltar
       </Link>
@@ -49,6 +50,13 @@ export default async function JobDetail({ params }: Props) {
         />
       )}
       <h2>{job.title}</h2>
+      <FavoriteButton
+        jobId={jobId}
+        jobTitle={job.title}
+        jobUrl={job.url}
+        jobCompany={job.company_name}
+        jobLogo={job.company_logo || undefined}
+      />
       <p>
         <strong>{job.company_name}</strong> – {job.candidate_required_location}
       </p>

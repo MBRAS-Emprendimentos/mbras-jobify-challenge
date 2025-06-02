@@ -16,7 +16,7 @@ export function SideBar2() {
   };
 
   return (
-    <header className="bg-white dark:bg-black text-black dark:text-white">
+    <header className="fixed top-0 left-0 w-full bg-white dark:bg-black text-black dark:text-white shadow-sm">
       <div className="mx-auto flex items-center justify-between px-4 md:px-10 py-4 max-w-7xl">
         <Link
           href="/"
@@ -38,6 +38,11 @@ export function SideBar2() {
           <Link href="#" className="hover:text-indigo-700">
             Para Empresas
           </Link>
+          {isLoggedIn && (
+            <Link href="/favorites" className="hover:text-indigo-700">
+              Favoritos
+            </Link>
+          )}
         </nav>
 
         <div className="flex items-center gap-4">

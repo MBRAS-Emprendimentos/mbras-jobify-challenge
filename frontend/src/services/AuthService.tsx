@@ -3,12 +3,14 @@
 import { createContext, useState, useEffect, ReactNode } from "react";
 
 interface AuthContextType {
+  token: string | null;
   isLoggedIn: boolean;
   login: (token: string) => void;
   logout: () => void;
 }
 
 export const AuthContext = createContext<AuthContextType>({
+  token: null,
   isLoggedIn: false,
   login: () => {},
   logout: () => {},
@@ -35,7 +37,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const isLoggedIn = !!token;
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, login, logout }}>
+    <AuthContext.Provider value={{ token, isLoggedIn, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

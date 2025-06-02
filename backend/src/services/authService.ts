@@ -1,13 +1,9 @@
-import { createClient } from '@supabase/supabase-js';
+import { supabase } from "../config/db"
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 
 dotenv.config();
-
-const supabaseUrl = process.env.SUPABASE_URL!;
-const supabaseKey = process.env.SUPABASE_ANON_KEY!;
-const supabase = createClient(supabaseUrl, supabaseKey);
 
 const JWT_SECRET = process.env.JWT_SECRET || 'supersecret';
 
@@ -63,4 +59,12 @@ export async function loginUser(email: string, password: string) {
   });
 
   return { token, email: user.email };
+}
+
+export function verifyToken(token: string) {
+  try {
+    return jwt.verify(token, JWT_SECRET) as { userId: string; email: string };
+  } catch {
+    throw new Error('Token inválido');
+  }
 }

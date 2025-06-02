@@ -4,9 +4,11 @@ import Link from "next/link";
 import { Mode } from "@/utils/buttonNav";
 import { Briefcase } from "lucide-react";
 import { AuthContext } from "@/services/AuthService";
+import { useRouter } from "next/navigation";
 
 const SideBar: React.FC = () => {
   const sidebarRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
   const openNav = () => {
     if (sidebarRef.current) {
@@ -18,6 +20,11 @@ const SideBar: React.FC = () => {
     if (sidebarRef.current) {
       sidebarRef.current.style.width = "0";
     }
+  };
+
+  const handleLogout = () => {
+    logout();
+    router.push("/");
   };
 
   const { isLoggedIn, logout } = useContext(AuthContext);
@@ -66,6 +73,14 @@ const SideBar: React.FC = () => {
             >
               Para Empresas
             </Link>
+            {isLoggedIn && (
+              <Link
+                href="/favorites"
+                className="block text-white text-lg px-8 py-3 hover:text-gray-300"
+              >
+                Favoritos
+              </Link>
+            )}
           </div>
           <Link
             href="/"
@@ -83,7 +98,7 @@ const SideBar: React.FC = () => {
               </Link>
             ) : (
               <button
-                onClick={logout}
+                onClick={handleLogout}
                 className="cursor-pointer px-4 py-2 rounded-md bg-red-600 text-white text-sm font-medium shadow hover:bg-red-700"
               >
                 Sair
